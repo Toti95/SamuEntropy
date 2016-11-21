@@ -171,6 +171,7 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
     }
 
     public float getScaleFactor() {
+
         return scaleFactor;
     }
     
@@ -254,9 +255,6 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
         this.context = context;
         nodes = new Nodes(this);
 
-       /* if (nodeBoxes.size() == 0) {
-            nodeBoxes.add((NeuronBox) Nodes.get(6).clone());
-        }*/
 
 		nodeBoxes.clear();
         loadData(PreferenceManager.getDefaultSharedPreferences(context));
@@ -389,8 +387,14 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
                 else
                 {
                 	DTap=false;
-                	nodeBoxes.remove(nb);
+                	try
+                	{
+                		nodeBoxes.remove(nb);
+                	}
+                	catch (java.util.ConcurrentModificationException e) {}
                 }
+    
+                
             }
             else
                 selNb = null;

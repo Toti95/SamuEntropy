@@ -138,7 +138,7 @@ public class NeuronGameActivity extends android.app.Activity {
             if(v.getId() == R.id.bottom)
                 return true;
             int action = event.getAction();
-            switch (event.getAction()) {
+            switch (action) {
                 case DragEvent.ACTION_DRAG_STARTED:
                     break;
                 case DragEvent.ACTION_DRAG_ENTERED:
@@ -149,6 +149,8 @@ public class NeuronGameActivity extends android.app.Activity {
                     break;
                 case DragEvent.ACTION_DROP:
                     View view = (View) event.getLocalState();
+                    if(view == null)
+                        return true;
                     float x = event.getX();
                     float y = event.getY();
                         switch (view.getId()) {

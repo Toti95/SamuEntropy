@@ -76,7 +76,7 @@ public class NeuronBox implements Cloneable {
         this.cover = cover;
         this.boxWidth = cover.getWidth();
         this.boxHeight = cover.getHeight();
-	this.covertype = covertype;
+        this.covertype = covertype;
 
         to = new android.graphics.Rect(0, 0, boxWidth, boxHeight);
 
